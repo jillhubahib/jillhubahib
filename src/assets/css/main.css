@@ -25,6 +25,18 @@ e. Others
 /* ------------------------------------------------------------------ */
 /* a. Webfonts and Icon fonts
  ------------------------------------------------------------------ */
+ @font-face {
+  font-family: 'librebaskerville-regular';
+  src: url('./librebaskerville-regular-webfont.woff') format('woff');
+}
+@font-face {
+  font-family: 'librebaskerville-italic';
+  src: url('./librebaskerville-italic-webfont.woff') format('woff');
+}
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('./fontawesome-webfont.woff') format('woff');
+}
 
 /* ------------------------------------------------------------------
 /* b. Reset
@@ -1589,7 +1601,6 @@ call-to-action .button {
   content: none;
 }
 #testimonials blockquote p {
-  font-family: "librebaskerville-italic", serif;
   padding: 0;
   font-size: 24px;
   line-height: 48px;
