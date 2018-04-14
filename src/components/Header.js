@@ -4,10 +4,10 @@ import Navigation from "./Navigation";
 import Banner from "./Banner";
 import ScrollDown from "./ScrollDown";
 
-const Header = () => (
+const Header = ({data}) => (
   <header id="home">
     <Navigation />
-    <Banner />
+    <Banner data={data} />
     <ScrollDown />
   </header>
 );
