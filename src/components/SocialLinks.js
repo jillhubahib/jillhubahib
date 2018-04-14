@@ -1,9 +1,7 @@
 import React from "react";
 import {
-  FaFacebook,
   FaGithub,
   FaGooglePlus,
-  FaInstagram,
   FaTwitter
 } from "react-icons/lib/fa";
 // https://gorangajic.github.io/react-icons/fa.html
@@ -11,28 +9,18 @@ import {
 const SocialLinks = () => (
   <ul className="social">
     <li>
-      <a href="#">
-        <FaFacebook />
+      <a href="https://github.com/jillhubahib">
+        <FaGithub />
       </a>
     </li>
     <li>
-      <a href="#">
-        <FaTwitter />
-      </a>
-    </li>
-    <li>
-      <a href="#">
+      <a href="https://plus.google.com/u/1/+HoneyJillHubahib">
         <FaGooglePlus />
       </a>
     </li>
     <li>
-      <a href="#">
-        <FaInstagram />
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <FaGithub />
+      <a href="https://twitter.com/jillhubahib">
+        <FaTwitter />
       </a>
     </li>
   </ul>

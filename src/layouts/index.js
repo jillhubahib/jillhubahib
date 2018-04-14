@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { siteMetadata } from "../../gatsby-config";
 
+import FavIcon from "../assets/favicon.ico";
+
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet>
@@ -18,7 +20,7 @@ const TemplateWrapper = ({ children }) => (
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
       <title>{siteMetadata.title}</title>
-      <link rel="icon" href="../assets/favicon.png" type="image/x-icon"/>
+      <link rel="icon" href={FavIcon} type="image/x-icon"/>
     </Helmet>
     {children()}
   </div>
