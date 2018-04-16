@@ -18,7 +18,7 @@ const Footer = () => (
           </li>
           <li>
             <a href="https://github.com/jillhubahib/jillhubahib">
-              Repo
+              Repository
             </a>
           </li>
         </ul>

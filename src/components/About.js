@@ -18,16 +18,14 @@ const About = ({data}) => (
           <div className="columns contact-details">
             <h2>Contact Details</h2>
             <p className="address">
-              <span>Jonathan Doe</span>
+              <span>Honey Jill Hubahib</span>
               <br />
               <span>
-                1600 Amphitheatre Parkway
-                <br /> Mountain View, CA 94043 US
+                Cebu City
+                <br /> Cebu, Philippines
               </span>
               <br />
-              <span>(123)456-7890</span>
-              <br />
-              <span>anyone@website.com</span>
+              <span>jillhubahib@gmail.com</span>
             </p>
           </div>
           <div className="columns download">
