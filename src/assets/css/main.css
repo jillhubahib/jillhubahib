@@ -37,6 +37,14 @@ e. Others
   font-family: 'FontAwesome';
   src: url('./fontawesome-webfont.woff') format('woff');
 }
+@font-face {
+  font-family: 'opensans-regular';
+  src: url('./OpenSans-Regular-webfont.woff') format('woff');
+}
+@font-face {
+  font-family: 'opensans-bold';
+  src: url('./OpenSans-Bold-webfont.woff') format('woff');
+}
 
 /* ------------------------------------------------------------------
 /* b. Reset
@@ -887,7 +895,7 @@ header .banner-text h1 {
 }
 header .banner-text h3 {
   font: 18px/1.9em "librebaskerville-regular", serif;
-  color: #a8a8a8;
+  color: #d3d3d3;
   margin: 0 auto;
   width: 70%;
   text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
@@ -1419,26 +1427,26 @@ ul#nav li.current a {
 }
 
 /* popup modal */
-.popup-modal {
+.ReactModal__Content {
   max-width: 550px;
   background: #fff;
   position: relative;
   margin: 0 auto;
 }
-.popup-modal .description-box {
+.ReactModal__Content .description-box {
   padding: 12px 36px 18px 36px;
 }
-.popup-modal .description-box h4 {
+.ReactModal__Content .description-box h4 {
   font: 15px/24px "opensans-bold", sans-serif;
   margin-bottom: 12px;
   color: #111;
 }
-.popup-modal .description-box p {
+.ReactModal__Content .description-box p {
   font: 14px/24px "opensans-regular", sans-serif;
   color: #a1a1a1;
   margin-bottom: 12px;
 }
-.popup-modal .description-box .categories {
+.ReactModal__Content .description-box .categories {
   font: 11px/21px "opensans-light", sans-serif;
   color: #a1a1a1;
   text-transform: uppercase;
@@ -1446,25 +1454,25 @@ ul#nav li.current a {
   display: block;
   text-align: left;
 }
-.popup-modal .description-box .categories i {
+.ReactModal__Content .description-box .categories i {
   margin-right: 8px;
 }
-.popup-modal .link-box {
+.ReactModal__Content .link-box {
   padding: 18px 36px;
   background: #111;
   text-align: left;
 }
-.popup-modal .link-box a {
+.ReactModal__Content .link-box a {
   color: #fff;
   font: 11px/21px "opensans-bold", sans-serif;
   text-transform: uppercase;
   letter-spacing: 3px;
   cursor: pointer;
 }
-.popup-modal a:hover {
+.ReactModal__Content a:hover {
   color: #00cccc;
 }
-.popup-modal a.popup-modal-dismiss {
+.ReactModal__Content a.ReactModal__Content-dismiss {
   margin-left: 24px;
 }
 
@@ -1472,7 +1480,7 @@ ul#nav li.current a {
 /* ------------------------------------------------------------------ */
 
 /* content at start */
-.mfp-fade.mfp-wrap .mfp-content .popup-modal {
+.mfp-fade.mfp-wrap .mfp-content .ReactModal__Content {
   opacity: 0;
   -webkit-transition: all 200ms ease-in-out;
   -moz-transition: all 200ms ease-in-out;
@@ -1481,11 +1489,11 @@ ul#nav li.current a {
   transition: all 200ms ease-in-out;
 }
 /* content fadein */
-.mfp-fade.mfp-wrap.mfp-ready .mfp-content .popup-modal {
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content .ReactModal__Content {
   opacity: 1;
 }
 /* content fadeout */
-.mfp-fade.mfp-wrap.mfp-removing .mfp-content .popup-modal {
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content .ReactModal__Content {
   opacity: 0;
 }
 
@@ -1622,49 +1630,40 @@ call-to-action .button {
   border: none;
 }
 
-/* Flex Slider
+/* React Slick Slider
 /* ------------------------------------------------------------------ */
-
-/* Reset */
-.flexslider a:active,
-.flexslider a:focus {
-  outline: none;
-}
-.slides,
-.flex-control-nav,
-.flex-direction-nav {
+.testimonial-dots {
+  width: 100%;
+  position: absolute;
+  bottom: -20px;
+  text-align: left;
   margin: 0;
-  padding: 0;
-  list-style: none;
 }
-.slides li {
-  margin: 0;
-  padding: 0;
-}
-
-/* Necessary Styles */
-.flexslider {
-  position: relative;
-  zoom: 1;
-  margin: 0;
-  padding: 0;
-}
-.flexslider .slides {
+.testimonial-dots li {
+  margin: 0 6px;
+  display: inline-block;
   zoom: 1;
 }
-.flexslider .slides > li {
-  position: relative;
-}
+.testimonial-dots li button {
+  width: 12px;
+  height: 12px;
+  display: block;
+  background: #ddd;
+  background: rgba(255, 255, 255, .3);
+  cursor: pointer;
+  text-indent: -9999px;
+  box-shadow: inset 0 0 3px rgba(255, 255, 255, .3);
+  padding: 0;
 
-/* Hide the slides before the JS is loaded. Avoids image jumping */
-.flexslider .slides > li {
-  display: none;
-  -webkit-backface-visibility: hidden;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
 }
-/* Suggested container for slide animation setups. Can replace this with your own */
-.flex-container {
-  zoom: 1;
-  position: relative;
+.testimonial-dots li.slick-active button {
+  background: #fff;
+  background: rgba(255, 255, 255, .9);
+  cursor: default;
 }
 
 /* Clearfix for .slides */
@@ -2236,7 +2235,7 @@ footer .social li:first-child {
  /* Portfolio Section
  /* ----------------------------------------------------------------- */
  #portfolio-wrapper .columns { margin-bottom: 40px; }
- .popup-modal {	max-width: 85%; }
+ .ReactModal__Content {	max-width: 85%; }
 
 
  /* Testimonials Section

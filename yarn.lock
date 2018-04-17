@@ -1904,6 +1904,10 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classnames@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
+
 cli-boxes@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/cli-boxes/-/cli-boxes-1.0.0.tgz#4fa917c3e59c94a004cd61f8ee509da651687143"
@@ -2186,6 +2190,10 @@ console-polyfill@^0.1.2:
 console-stream@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/console-stream/-/console-stream-0.1.1.tgz#a095fe07b20465955f2fafd28b5d72bccd949d44"
+
+consolidated-events@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/consolidated-events/-/consolidated-events-1.1.1.tgz#25395465b35e531395418b7bbecb5ecaf198d179"
 
 constants-browserify@^1.0.0:
   version "1.0.0"
@@ -3008,6 +3016,10 @@ enhanced-resolve@~0.9.0:
     memory-fs "^0.2.0"
     tapable "^0.1.8"
 
+enquire.js@^2.1.6:
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/enquire.js/-/enquire.js-2.1.6.tgz#3e8780c9b8b835084c3f60e166dbc3c2a3c89814"
+
 entities@^1.1.1, entities@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
@@ -3202,7 +3214,7 @@ executable@^1.0.0:
   dependencies:
     meow "^3.1.0"
 
-exenv@^1.2.1:
+exenv@^1.2.0, exenv@^1.2.1:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
 
@@ -5542,6 +5554,12 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
 
+json2mq@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/json2mq/-/json2mq-0.2.0.tgz#b637bd3ba9eabe122c83e9720483aeb10d2c904a"
+  dependencies:
+    string-convert "^0.2.0"
+
 json3@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/json3/-/json3-3.3.2.tgz#3c0434743df93e2f5c42aee7b19bcb483575f4e1"
@@ -5827,6 +5845,10 @@ lodash.camelcase@^4.3.0:
 lodash.clonedeep@^4.3.2, lodash.clonedeep@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
+
+lodash.debounce@^4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
 
 lodash.defaults@^4.0.1:
   version "4.2.0"
@@ -7831,7 +7853,7 @@ process-nextick-args@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.0.tgz#a37d732f4271b4ab1ad070d35508e8290788ffaa"
 
-process@^0.11.0, process@^0.11.10:
+process@^0.11.0, process@^0.11.10, process@^0.11.9:
   version "0.11.10"
   resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
 
@@ -7855,7 +7877,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8:
+prop-types@^15.0.0, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.1.tgz#36644453564255ddda391191fb3a125cbdf654ca"
   dependencies:
@@ -8012,6 +8034,10 @@ rc@^1.0.1, rc@^1.1.2, rc@^1.1.6, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-anchor-link-smooth-scroll@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-anchor-link-smooth-scroll/-/react-anchor-link-smooth-scroll-1.0.5.tgz#2c6d88660258d8d1203d5cd9723be88be7c77e77"
+
 react-deep-force-update@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-2.1.1.tgz#8ea4263cd6455a050b37445b3f08fd839d86e909"
@@ -8081,6 +8107,19 @@ react-icons@2.2.7:
   dependencies:
     react-icon-base "2.1.0"
 
+react-lifecycles-compat@^3.0.0:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.2.tgz#7279047275bd727a912e25f734c0559527e84eff"
+
+react-modal@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/react-modal/-/react-modal-3.4.1.tgz#9bee876ffb1b077447abef9aa298d375625f8ecf"
+  dependencies:
+    exenv "^1.2.0"
+    prop-types "^15.5.10"
+    react-lifecycles-compat "^3.0.0"
+    warning "^3.0.0"
+
 react-proxy@^3.0.0-alpha.0:
   version "3.0.0-alpha.1"
   resolved "https://registry.yarnpkg.com/react-proxy/-/react-proxy-3.0.0-alpha.1.tgz#4400426bcfa80caa6724c7755695315209fa4b07"
@@ -8117,9 +8156,33 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
 
+react-slick@^0.23.1:
+  version "0.23.1"
+  resolved "https://registry.yarnpkg.com/react-slick/-/react-slick-0.23.1.tgz#15791c4107f0ba3a5688d5bd97b7b7ceaa0dd181"
+  dependencies:
+    classnames "^2.2.5"
+    enquire.js "^2.1.6"
+    json2mq "^0.2.0"
+    lodash.debounce "^4.0.8"
+    resize-observer-polyfill "^1.5.0"
+
+react-textfit@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-textfit/-/react-textfit-1.1.0.tgz#088855580f2e7aad269efc81b734bf636877d0e1"
+  dependencies:
+    process "^0.11.9"
+    prop-types "^15.5.10"
+
 react-typography@^0.16.1:
   version "0.16.13"
   resolved "https://registry.yarnpkg.com/react-typography/-/react-typography-0.16.13.tgz#94bdd2a9448823bc74d8ebf7465d86c7dbe20dcf"
+
+react-waypoint@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/react-waypoint/-/react-waypoint-8.0.1.tgz#00f7694a9d54da5a50be859da5dde96b1795b892"
+  dependencies:
+    consolidated-events "^1.1.0"
+    prop-types "^15.0.0"
 
 react@^15.6.0:
   version "15.6.2"
@@ -8644,6 +8707,10 @@ require-main-filename@^1.0.1:
 requires-port@1.0.x, requires-port@1.x.x, requires-port@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
+
+resize-observer-polyfill@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.0.tgz#660ff1d9712a2382baa2cad450a4716209f9ca69"
 
 resolve-cwd@^2.0.0:
   version "2.0.0"
@@ -9487,6 +9554,10 @@ stream-to@~0.2.0:
 strict-uri-encode@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz#279b225df1d582b1f54e65addd4352e18faa0713"
+
+string-convert@^0.2.0:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/string-convert/-/string-convert-0.2.1.tgz#6982cc3049fbb4cd85f8b24568b9d9bf39eeff97"
 
 string-similarity@1.2.0, string-similarity@^1.2.0:
   version "1.2.0"

@@ -1,33 +1,34 @@
 import React from "react";
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
-const Navigation = () => (
-  <nav id="nav-wrap">
+const Navigation = ({ currentPosition, outOfHeader, darkenedNavigation }) => (
+  <nav id="nav-wrap" className={ darkenedNavigation ? 'opaque' : null } >
     <a className="mobile-btn" href="#nav-wrap" />
     <ul id="nav" className="nav">
-      <li className="current">
-        <a className="smoothscroll" href="#home">
+      <li className={ currentPosition === 'home' ? 'current' : null } >
+        <AnchorLink href="#home">
           Home
-        </a>
+        </AnchorLink>
       </li>
-      <li>
-        <a className="smoothscroll" href="#about">
+      <li className={ currentPosition === 'about' ? 'current' : null } >
+        <AnchorLink href="#about">
           About
-        </a>
+        </AnchorLink>
       </li>
-      <li>
-        <a className="smoothscroll" href="#resume">
+      <li className={ currentPosition === 'resume' ? 'current' : null } >
+        <AnchorLink href="#resume">
           Resume
-        </a>
+        </AnchorLink>
       </li>
-      <li>
-        <a className="smoothscroll" href="#portfolio">
+      <li className={ currentPosition === 'portfolio' ? 'current' : null }>
+        <AnchorLink href="#portfolio">
           Works
-        </a>
+        </AnchorLink>
       </li>
-      <li>
-        <a className="smoothscroll" href="#testimonials">
-          Testimonials
-        </a>
+      <li className={ currentPosition === 'testimonials' ? 'current' : null }  >
+        <AnchorLink href="#testimonials">
+          Recommendations
+        </AnchorLink>
       </li>
     </ul>
   </nav>
