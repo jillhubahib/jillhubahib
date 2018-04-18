@@ -5,7 +5,11 @@ import Education from "./Education";
 import Work from "./Work";
 import Skills from "./Skills";
 
-const Resume = ({ changePosition, changeNavigationToDark }) => (
+const Resume = ({
+  changePosition,
+  changeNavigationToDark,
+  data
+}) => (
   <Waypoint
     onEnter={() => {
       changePosition('resume')
@@ -13,7 +17,7 @@ const Resume = ({ changePosition, changeNavigationToDark }) => (
     }}
   >
     <section id="resume">
-      <Education />
+      <Education data={data.education}/>
       <Work />
       <Skills />
     </section>

@@ -2,8 +2,6 @@ import React from "react";
 import Waypoint from 'react-waypoint';
 import { FaCloudDownload } from "react-icons/lib/fa";
 
-import profilePic from "../assets/images/profilepic.jpg";
-
 const About = ({data, changePosition, changeNavigationToDark}) => (
   <Waypoint
     onEnter={() => {
@@ -14,7 +12,7 @@ const About = ({data, changePosition, changeNavigationToDark}) => (
     <section id="about">
       <div className="row">
         <div className="three columns">
-          <img className="profile-pic" src={profilePic} alt="" />
+          <img className="profile-pic" src="https://avatars3.githubusercontent.com/u/491875?s=460&v=4" alt="Jill Pic" />
         </div>
         <div className="nine columns main-col">
           <h2>About Me</h2>

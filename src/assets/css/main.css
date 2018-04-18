@@ -1129,6 +1129,9 @@ ul#nav li.current a {
   padding-bottom: 24px;
   border-bottom: 1px solid #e8e8e8;
 }
+.education .detail {
+  white-space: pre-wrap;
+}
 #resume .info {
 
   color: #6e7881;
