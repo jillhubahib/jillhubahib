@@ -55,6 +55,7 @@ class IndexPage extends Component {
           changeNavigationToDark={this.changeNavigationToDark}
         />
         <Testimonials
+          data={this.props.data.allContentfulRecommendation}
           changePosition={this.changePosition}
           changeNavigationToDark={this.changeNavigationToDark}
         />
@@ -104,6 +105,18 @@ export const query = graphql`
               html
             }
           }
+        }
+      }
+    }
+    allContentfulRecommendation {
+      edges {
+        node {
+          detail {
+            detail
+          }
+          givenBy
+          givenByPosition
+          givenByCompany
         }
       }
     }
