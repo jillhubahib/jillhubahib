@@ -1,3 +1,3 @@
-This is Honey Jill Hubahib's personal website built with [GatsbyJS](https://www.gatsbyjs.org) with its [gatsby-starter-ceevee](https://github.com/amandeepmittal/gatsby-starter-ceevee) template, deployed in [Netlify](https://www.netlify.com/) and with data serve from [Contentful](https://www.contentful.com/).
+This is Honey Jill Hubahib's personal website built with [GatsbyJS](https://www.gatsbyjs.org) and its [gatsby-starter-ceevee](https://github.com/amandeepmittal/gatsby-starter-ceevee) startes, deployed in [Netlify](https://www.netlify.com/) and with data serve from [Contentful](https://www.contentful.com/) and managed by [Redux](https://redux.js.org/)
 
 Inspired by [JAMstack](https://jamstack.org/).

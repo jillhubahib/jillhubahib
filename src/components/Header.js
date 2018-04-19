@@ -1,32 +1,31 @@
-import React from "react";
-import Waypoint from 'react-waypoint';
+import React, { Component } from 'react';
+import Waypoint from "react-waypoint";
+import { connect } from "react-redux";
 
 import Navigation from "./Navigation";
 import Banner from "./Banner";
 import ScrollDown from "./ScrollDown";
+import { SET_CURRENT_NAV } from '../state/actions';
 
-const Header = ({
-data,
-currentPosition,
-changePosition,
-darkenedNavigation,
-changeNavigationToDark
-}) => (
-  <Waypoint
-    onEnter={() => {
-      changePosition('home')
-      changeNavigationToDark(false)
-    }}
-  >
-    <header id="home">
-      <Navigation
-        currentPosition={currentPosition}
-        darkenedNavigation={darkenedNavigation}
-      />
-      <Banner data={data} />
-      <ScrollDown />
-    </header>
-  </Waypoint>
-);
+class Header extends Component {
+  handlesWaypointEnter = () => {
+    this.props.dispatch({
+      type: SET_CURRENT_NAV,
+      payload: "home"
+    })
+  }
 
-export default Header;
+  render() {
+    return (
+      <Waypoint onEnter={this.handlesWaypointEnter} >
+        <header id="home">
+          <Navigation />
+          <Banner />
+          <ScrollDown />
+        </header>
+      </Waypoint>
+    );
+  }
+}
+
+export default connect()(Header);

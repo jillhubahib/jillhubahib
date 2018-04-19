@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import Link from "gatsby-link";
+import { connect } from 'react-redux';
+
+import {
+  SET_BANNER,
+  SET_ABOUT_ME,
+  SET_EDUCATION,
+  SET_WORK_HISTORY,
+  SET_TESTIMONIALS
+} from '../state/actions'
 
 import "../assets/css/main.css";
 
@@ -11,61 +19,43 @@ import Testimonials from "../components/Testimonials";
 import Footer from "../components/Footer";
 
 class IndexPage extends Component {
-  state = {
-    currentPosition: 'home',
-    darkenedNavigation: false
-  }
-
-  changePosition = (newPosition) => {
-    this.setState({ currentPosition: newPosition });
-  }
-
-  changeNavigationToDark = (darken) => {
-    this.setState({ darkenedNavigation: darken ? true : false })
-  }
-
-  render() {
+  componentDidMount() {
+    // contentful -> redux
     const aboutMeNode = this.props.data.allContentfulAboutMe.edges[0].node;
     const aboutMe = aboutMeNode.aboutMe.aboutMe;
     const banner = aboutMeNode.banner;
-    const { currentPosition, darkenedNavigation } = this.state;
-    console.log(this.props.data)
+
+    this.props.dispatch({ type: SET_BANNER, payload: banner })
+    this.props.dispatch({ type: SET_ABOUT_ME, payload: aboutMe })
+    this.props.dispatch({
+      type: SET_EDUCATION,
+      payload: this.props.data.allContentfulEducation.edges
+    })
+    this.props.dispatch({
+      type: SET_WORK_HISTORY,
+      payload: this.props.data.allContentfulExperiences.edges
+    })
+    this.props.dispatch({
+      type: SET_TESTIMONIALS,
+      payload: this.props.data.allContentfulRecommendation.edges
+    })
+  }
+
+  render() {
     return (
       <div>
-        <Header data={banner}
-          currentPosition={currentPosition}
-          changePosition={this.changePosition}
-          darkenedNavigation={darkenedNavigation}
-          changeNavigationToDark={this.changeNavigationToDark}
-        />
-        <About data={aboutMe}
-          changePosition={this.changePosition}
-          changeNavigationToDark={this.changeNavigationToDark}
-        />
-        <Resume
-          data={{
-            education: this.props.data.allContentfulEducation,
-            works: this.props.data.allContentfulExperiences
-          }}
-          changePosition={this.changePosition}
-          changeNavigationToDark={this.changeNavigationToDark}
-        />
-        <Portfolio
-          changePosition={this.changePosition}
-          changeNavigationToDark={this.changeNavigationToDark}
-        />
-        <Testimonials
-          data={this.props.data.allContentfulRecommendation}
-          changePosition={this.changePosition}
-          changeNavigationToDark={this.changeNavigationToDark}
-        />
+        <Header />
+        <About />
+        <Resume />
+        <Portfolio />
+        <Testimonials />
         <Footer />
       </div>
     );
   }
 }
 
-export default IndexPage;
+export default connect()(IndexPage);
 
 export const query = graphql`
   query Query {
@@ -86,7 +76,9 @@ export const query = graphql`
           course
           dateGraduated(formatString: "MMMM YYYY")
           educationDetail {
-            educationDetail
+            childMarkdownRemark {
+              html
+            }
           }
         }
       }

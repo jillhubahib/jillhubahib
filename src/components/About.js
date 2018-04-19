@@ -1,50 +1,58 @@
-import React from "react";
-import Waypoint from 'react-waypoint';
+import React, { Component } from 'react';
+import { connect } from "react-redux";
 import { FaCloudDownload } from "react-icons/lib/fa";
+import Waypoint from 'react-waypoint';
+import { SET_CURRENT_NAV } from '../state/actions';
 
-const About = ({data, changePosition, changeNavigationToDark}) => (
-  <Waypoint
-    onEnter={() => {
-      changePosition('about')
-      changeNavigationToDark(false)
-    }}
-  >
-    <section id="about">
-      <div className="row">
-        <div className="three columns">
-          <img className="profile-pic" src="https://avatars3.githubusercontent.com/u/491875?s=460&v=4" alt="Jill Pic" />
-        </div>
-        <div className="nine columns main-col">
-          <h2>About Me</h2>
-          <p>
-            {data}
-          </p>
+class About extends Component {
+  handlesWaypointEnter = () => {
+    this.props.dispatch({
+      type: SET_CURRENT_NAV,
+      payload: 'about'
+    })
+  }
+
+  render() {
+    return (
+      <Waypoint onEnter={this.handlesWaypointEnter} >
+        <section id="about">
           <div className="row">
-            <div className="columns contact-details">
-              <h2>Contact Details</h2>
-              <p className="address">
-                <span>Honey Jill Hubahib</span>
-                <br />
-                <span>
-                  Cebu City
-                  <br /> Cebu, Philippines
-                </span>
-                <br />
-                <span>jillhubahib@gmail.com</span>
-              </p>
+            <div className="three columns">
+              <img className="profile-pic" src="https://avatars3.githubusercontent.com/u/491875?s=460&v=4" alt="Jill Pic" />
             </div>
-            <div className="columns download" style={{display: 'none'}}>
+            <div className="nine columns main-col">
+              <h2>About Me</h2>
               <p>
-                <a href="#" className="button">
-                  <FaCloudDownload /> Download Resume
-                </a>
+                {this.props.aboutMe}
               </p>
+              <div className="row">
+                <div className="columns contact-details">
+                  <h2>Contact Details</h2>
+                  <p className="address">
+                    <span>Honey Jill Hubahib</span>
+                    <br />
+                    <span>
+                      Cebu City
+                      <br /> Cebu, Philippines
+                    </span>
+                    <br />
+                    <span>jillhubahib@gmail.com</span>
+                  </p>
+                </div>
+                <div className="columns download" style={{display: 'none'}}>
+                  <p>
+                    <a href="#" className="button">
+                      <FaCloudDownload /> Download Resume
+                    </a>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-  </Waypoint>
-);
+        </section>
+      </Waypoint>
+    );
+  }
+}
 
-export default About;
+export default connect((state) => (state))(About);

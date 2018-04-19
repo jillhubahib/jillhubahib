@@ -1,27 +1,30 @@
-import React from "react";
-import Waypoint from 'react-waypoint';
+import React, { Component } from 'react';
+import { connect } from "react-redux";
+import Waypoint from "react-waypoint";
 
 import Education from "./Education";
 import Work from "./Work";
 import Skills from "./Skills";
+import { SET_CURRENT_NAV } from '../state/actions';
+class Resume extends Component {
+  handlesWaypointEnter = () => {
+    this.props.dispatch({
+      type: SET_CURRENT_NAV,
+      payload: 'resume'
+    })
+  }
 
-const Resume = ({
-  changePosition,
-  changeNavigationToDark,
-  data
-}) => (
-  <Waypoint
-    onEnter={() => {
-      changePosition('resume')
-      changeNavigationToDark(true)
-    }}
-  >
-    <section id="resume">
-      <Education data={data.education} />
-      <Work data={data.works} />
-      <Skills />
-    </section>
-  </Waypoint>
-);
+  render() {
+    return (
+      <Waypoint onEnter={this.handlesWaypointEnter}>
+        <section id="resume">
+          <Education />
+          <Work />
+          <Skills />
+        </section>
+      </Waypoint>
+    );
+  }
+}
 
-export default Resume;
+export default connect()(Resume);
