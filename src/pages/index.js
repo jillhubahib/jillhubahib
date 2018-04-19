@@ -29,7 +29,7 @@ class IndexPage extends Component {
     const aboutMe = aboutMeNode.aboutMe.aboutMe;
     const banner = aboutMeNode.banner;
     const { currentPosition, darkenedNavigation } = this.state;
-
+    console.log(this.props.data)
     return (
       <div>
         <Header data={banner}
@@ -44,7 +44,8 @@ class IndexPage extends Component {
         />
         <Resume
           data={{
-            education: this.props.data.allContentfulEducation
+            education: this.props.data.allContentfulEducation,
+            works: this.props.data.allContentfulExperiences
           }}
           changePosition={this.changePosition}
           changeNavigationToDark={this.changeNavigationToDark}
@@ -66,7 +67,7 @@ class IndexPage extends Component {
 export default IndexPage;
 
 export const query = graphql`
-  query AboutQueryAndEducationQuery {
+  query Query {
     allContentfulAboutMe {
       edges {
         node {
@@ -85,6 +86,23 @@ export const query = graphql`
           dateGraduated(formatString: "MMMM YYYY")
           educationDetail {
             educationDetail
+          }
+        }
+      }
+    }
+    allContentfulExperiences (sort: { fields: [startDate], order: DESC }){
+      edges {
+        node {
+          company
+          companyLink
+          jobTitle
+          startDate(formatString: "MMMM YYYY")
+          endDate(formatString: "MMMM YYYY")
+          duration
+          jobDescription {
+            childMarkdownRemark {
+              html
+            }
           }
         }
       }

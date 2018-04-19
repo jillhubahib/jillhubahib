@@ -17,8 +17,8 @@ const Resume = ({
     }}
   >
     <section id="resume">
-      <Education data={data.education}/>
-      <Work />
+      <Education data={data.education} />
+      <Work data={data.works} />
       <Skills />
     </section>
   </Waypoint>
