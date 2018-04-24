@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 class Navigation extends Component {
   render() {
@@ -10,30 +9,30 @@ class Navigation extends Component {
       <nav id="nav-wrap" className="opaque" >
         <a className="mobile-btn" href="#nav-wrap" />
         <ul id="nav" className="nav">
-          <li className={ currentNav === 'home' ? "current" : null } >
-            <AnchorLink href="#home">
+          <li className={ currentNav === 'home' ? 'current' : null } >
+            <a href="#home">
               Home
-            </AnchorLink>
+            </a>
           </li>
-          <li className={ currentNav === 'about' ? "current" : null }>
-            <AnchorLink href="#about">
+          <li className={ currentNav === 'about' ? 'current' : null }>
+            <a href="#about">
               About
-            </AnchorLink>
+            </a>
           </li>
-          <li className={ currentNav === 'resume' ? "current" : null } >
-            <AnchorLink href="#resume">
+          <li className={ currentNav === 'resume' ? 'current' : null } >
+            <a href="#resume">
               Resume
-            </AnchorLink>
+            </a>
           </li>
-          <li className={ currentNav === 'portfolio' ? "current" : null } >
-            <AnchorLink href="#portfolio">
+          <li className={ currentNav === 'portfolio' ? 'current' : null } >
+            <a href="#portfolio">
               Works
-            </AnchorLink>
+            </a>
           </li>
-          <li className={ currentNav === 'testimonials' ? "current" : null } >
-            <AnchorLink href="#testimonials">
+          <li className={ currentNav === 'testimonials' ? 'current' : null } >
+            <a href="#testimonials">
               Recommendations
-            </AnchorLink>
+            </a>
           </li>
         </ul>
       </nav>

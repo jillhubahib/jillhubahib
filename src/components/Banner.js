@@ -9,9 +9,11 @@ class Banner extends Component {
     return (
       <div className="row banner">
         <div className="banner-text">
-          <Textfit mode="single">
-            <h1 className="responsive-headline">I'm {siteMetadata.author}.</h1>
-          </Textfit>
+          <h1 className="responsive-headline">
+            <Textfit mode="single">
+              I'm {siteMetadata.author}.
+            </Textfit>
+          </h1>
           <h3>
             {this.props.banner} Let's
             <a className="smoothscroll" href="#about">
