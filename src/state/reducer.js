@@ -4,6 +4,7 @@ import {
   SET_ABOUT_ME,
   SET_EDUCATION,
   SET_WORK_HISTORY,
+  SET_SKILLS,
   SET_TESTIMONIALS
 } from './actions'
 
@@ -19,6 +20,8 @@ export default (state, action) => {
       return {...state, education: action.payload }
     case SET_WORK_HISTORY:
       return {...state, workHistory: action.payload }
+    case SET_SKILLS:
+      return {...state, skills: action.payload }
     case SET_TESTIMONIALS:
       return {...state, testimonials: action.payload }
     default:

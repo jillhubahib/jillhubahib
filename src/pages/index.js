@@ -6,6 +6,7 @@ import {
   SET_ABOUT_ME,
   SET_EDUCATION,
   SET_WORK_HISTORY,
+  SET_SKILLS,
   SET_TESTIMONIALS
 } from '../state/actions'
 
@@ -34,6 +35,10 @@ class IndexPage extends Component {
     this.props.dispatch({
       type: SET_WORK_HISTORY,
       payload: this.props.data.allContentfulExperiences.edges
+    })
+    this.props.dispatch({
+      type: SET_SKILLS,
+      payload: this.props.data.allContentfulSkills.edges
     })
     this.props.dispatch({
       type: SET_TESTIMONIALS,
@@ -109,6 +114,14 @@ export const query = graphql`
           givenBy
           givenByPosition
           givenByCompany
+        }
+      }
+    }
+    allContentfulSkills {
+      edges {
+        node {
+          name
+          level
         }
       }
     }

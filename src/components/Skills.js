@@ -1,44 +1,32 @@
-import React from "react";
+import React, { Component } from 'react';
+import { connect } from "react-redux";
 
-const Skills = () => (
-  <div className="row skill">
-    <div className="three columns header-col">
-      <h1>
-        <span>Skills</span>
-      </h1>
-    </div>
+class Skills extends Component {
+  state = {  }
+  render() {
+    return (
+      <div className="row skill">
+        <div className="three columns header-col">
+          <h1>
+            <span>Skills</span>
+          </h1>
+        </div>
 
-    <div className="nine columns main-col">
-      <div className="bars">
-        <ul className="skills">
-          <li>
-            <span className="bar-expand photoshop" />
-            <em>Photoshop</em>
-          </li>
-          <li>
-            <span className="bar-expand illustrator" />
-            <em>Illustrator</em>
-          </li>
-          <li>
-            <span className="bar-expand wordpress" />
-            <em>Wordpress</em>
-          </li>
-          <li>
-            <span className="bar-expand css" />
-            <em>CSS</em>
-          </li>
-          <li>
-            <span className="bar-expand html5" />
-            <em>HTML5</em>
-          </li>
-          <li>
-            <span className="bar-expand nodejs" />
-            <em>Nodejs</em>
-          </li>
-        </ul>
+        <div className="nine columns main-col">
+          <div className="bars">
+            <ul className="skills">
+              {this.props.skills.map(({node}) => (
+                <li>
+                  <span className="bar-expand" style={ {width: `${node.level}%`} } />
+                  <em>{node.name}</em>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-);
+    );
+  }
+}
 
-export default Skills;
+export default connect((state) => (state))(Skills);
