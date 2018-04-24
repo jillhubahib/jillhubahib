@@ -5,7 +5,8 @@ import {
   SET_EDUCATION,
   SET_WORK_HISTORY,
   SET_SKILLS,
-  SET_TESTIMONIALS
+  SET_TESTIMONIALS,
+  SET_WORKS
 } from './actions'
 
 export default (state, action) => {
@@ -24,6 +25,8 @@ export default (state, action) => {
       return {...state, skills: action.payload }
     case SET_TESTIMONIALS:
       return {...state, testimonials: action.payload }
+    case SET_WORKS:
+      return {...state, works: action.payload }
     default:
       return state
   }

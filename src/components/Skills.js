@@ -16,7 +16,7 @@ class Skills extends Component {
           <div className="bars">
             <ul className="skills">
               {this.props.skills.map(({node}) => (
-                <li>
+                <li key={node.name}>
                   <span className="bar-expand" style={ {width: `${node.level}%`} } />
                   <em>{node.name}</em>
                 </li>

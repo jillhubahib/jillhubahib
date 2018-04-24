@@ -8,7 +8,8 @@ const initialState = {
   education: [],
   workHistory: [],
   skills: [],
-  testimonials: []
+  testimonials: [],
+  works: []
 }
 
 const createStore = () => reduxCreateStore(reducer, initialState)

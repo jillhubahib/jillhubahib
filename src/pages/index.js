@@ -7,7 +7,8 @@ import {
   SET_EDUCATION,
   SET_WORK_HISTORY,
   SET_SKILLS,
-  SET_TESTIMONIALS
+  SET_TESTIMONIALS,
+  SET_WORKS
 } from '../state/actions'
 
 import "../assets/css/main.css";
@@ -43,6 +44,10 @@ class IndexPage extends Component {
     this.props.dispatch({
       type: SET_TESTIMONIALS,
       payload: this.props.data.allContentfulRecommendation.edges
+    })
+    this.props.dispatch({
+      type: SET_WORKS,
+      payload: this.props.data.allContentfulPortfolio.edges
     })
   }
 
@@ -122,6 +127,26 @@ export const query = graphql`
         node {
           name
           level
+        }
+      }
+    }
+    allContentfulPortfolio {
+      edges {
+        node {
+          name
+          category
+          description {
+            childMarkdownRemark {
+              html
+            }
+          }
+          tags
+          repository
+          thumbnails {
+            file {
+              url
+            }
+          }
         }
       }
     }

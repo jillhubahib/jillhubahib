@@ -6,16 +6,28 @@ import { connect } from "react-redux";
 import Coffee from "../assets/images/portfolio/coffee.jpg";
 import Console from "../assets/images/portfolio/console.jpg";
 import Judah from "../assets/images/portfolio/judah.jpg";
+import CoffeeModal from "../assets/images/portfolio/modals/m-coffee.jpg";
 
 import PortfolioItemModal from './PortfolioItemModal';
 
 import { SET_CURRENT_NAV } from '../state/actions';
 
 class Portfolio extends Component {
-  state = { showModal: false }
+  state = {
+    showModal: false,
+    currentPortfolioItem: {
+      name: '',
+      tags: '',
+      repository: '',
+      modalPicUrl: ''
+    }
+  }
 
-  handleOpenModal = () => {
-    this.setState({ showModal: true });
+  handleOpenModal = (item) => {
+    this.setState({
+      showModal: true,
+      currentPortfolioItem: item
+    });
   }
 
   handleCloseModal = () => {
@@ -30,14 +42,14 @@ class Portfolio extends Component {
   }
 
   render() {
-    const { showModal } = this.state;
+    const { showModal, currentPortfolioItem } = this.state;
 
     return (
       <Waypoint onEnter={this.handlesWaypointEnter}>
         <section id="portfolio">
           <div className="row">
             <div className="twelve columns collapsed">
-              <h1>Check Out Some of My Works.</h1>
+              <h1>Check Out a Few of My Works.</h1>
 
               <div
                 id="portfolio-wrapper"
@@ -46,57 +58,29 @@ class Portfolio extends Component {
                 <PortfolioItemModal
                   showModal={showModal}
                   handleCloseModal={this.handleCloseModal}
+                  {...currentPortfolioItem}
                 />
-                <div className="columns portfolio-item">
-                  <div className="item-wrap">
-                    <a onClick={this.handleOpenModal}>
-                      <img alt="" src={Coffee} />
-                      <div className="overlay">
-                        <div className="portfolio-item-meta">
-                          <h5>Coffee</h5>
-                          <p>Illustrration</p>
+                {this.props.works.map(({node}) => (
+                  <div className="columns portfolio-item" key={node.name}>
+                    <div className="item-wrap">
+                      <a onClick={() => this.handleOpenModal(node)} >
+                        <img
+                          alt={node.name}
+                          src={node.thumbnails[0].file.url}
+                        />
+                        <div className="overlay">
+                          <div className="portfolio-item-meta">
+                            <h5>{node.name}</h5>
+                            <p>{node.category}</p>
+                          </div>
                         </div>
-                      </div>
-                      <div className="link-icon">
-                        <FaPlus />
-                      </div>
-                    </a>
-                  </div>
-                </div>
-
-                <div className="columns portfolio-item">
-                  <div className="item-wrap">
-                    <a>
-                      <img alt="" src={Console} />
-                      <div className="overlay">
-                        <div className="portfolio-item-meta">
-                          <h5>Console</h5>
-                          <p>Web Development</p>
+                        <div className="link-icon">
+                          <FaPlus />
                         </div>
-                      </div>
-                      <div className="link-icon">
-                        <FaPlus />
-                      </div>
-                    </a>
+                      </a>
+                    </div>
                   </div>
-                </div>
-
-                <div className="columns portfolio-item">
-                  <div className="item-wrap">
-                    <a>
-                      <img alt="" src={Judah} />
-                      <div className="overlay">
-                        <div className="portfolio-item-meta">
-                          <h5>Judah</h5>
-                          <p>Webdesign</p>
-                        </div>
-                      </div>
-                      <div className="link-icon">
-                        <FaPlus />
-                      </div>
-                    </a>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -106,4 +90,4 @@ class Portfolio extends Component {
   }
 }
 
-export default connect()(Portfolio);
+export default connect((state) => (state))(Portfolio);
