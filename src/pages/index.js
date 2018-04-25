@@ -24,7 +24,7 @@ class IndexPage extends Component {
   componentDidMount() {
     // contentful -> redux
     const aboutMeNode = this.props.data.allContentfulAboutMe.edges[0].node;
-    const aboutMe = aboutMeNode.aboutMe.aboutMe;
+    const aboutMe = aboutMeNode.aboutMe;
     const banner = aboutMeNode.banner;
 
     this.props.dispatch({ type: SET_BANNER, payload: banner })
@@ -74,7 +74,9 @@ export const query = graphql`
         node {
           banner
           aboutMe {
-            aboutMe
+            childMarkdownRemark {
+              html
+            }
           }
         }
       }

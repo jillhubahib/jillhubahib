@@ -22,9 +22,9 @@ class About extends Component {
             </div>
             <div className="nine columns main-col">
               <h2>About Me</h2>
-              <p>
-                {this.props.aboutMe}
-              </p>
+              {this.props.aboutMe.childMarkdownRemark && <p
+                dangerouslySetInnerHTML={{__html: this.props.aboutMe.childMarkdownRemark.html}}>
+              </p>}
               <div className="row">
                 <div className="columns contact-details">
                   <h2>Contact Details</h2>

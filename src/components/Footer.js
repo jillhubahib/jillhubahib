@@ -16,11 +16,6 @@ const Footer = () => (
               Styleshout
             </a>
           </li>
-          <li>
-            <a href="https://github.com/jillhubahib/jillhubahib">
-              Repository
-            </a>
-          </li>
         </ul>
       </div>
 
