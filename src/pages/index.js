@@ -124,7 +124,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulSkills {
+    allContentfulSkills (sort: { fields: [createdAt] }){
       edges {
         node {
           name
