@@ -16,6 +16,12 @@ const Footer = () => (
               Styleshout
             </a>
           </li>
+          <li>
+            Data delivered by{" "}
+            <a title="Styleshout" href="https://www.contentful.com/">
+              Contentful
+            </a>
+          </li>
         </ul>
       </div>
 
