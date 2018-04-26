@@ -2,15 +2,8 @@ import React, { Component } from 'react';
 import { FaPlus } from "react-icons/lib/fa";
 import Waypoint from "react-waypoint";
 import { connect } from "react-redux";
-
-import Coffee from "../assets/images/portfolio/coffee.jpg";
-import Console from "../assets/images/portfolio/console.jpg";
-import Judah from "../assets/images/portfolio/judah.jpg";
-import CoffeeModal from "../assets/images/portfolio/modals/m-coffee.jpg";
-
 import PortfolioItemModal from './PortfolioItemModal';
-
-import { SET_CURRENT_NAV } from '../state/actions';
+import { setCurrentNav } from '../state/actions';
 
 class Portfolio extends Component {
   state = {
@@ -34,18 +27,14 @@ class Portfolio extends Component {
     this.setState({ showModal: false });
   }
 
-  handlesWaypointEnter = () => {
-    this.props.dispatch({
-      type: SET_CURRENT_NAV,
-      payload: 'portfolio'
-    })
-  }
-
   render() {
     const { showModal, currentPortfolioItem } = this.state;
 
     return (
-      <Waypoint onEnter={this.handlesWaypointEnter}>
+      <Waypoint
+        onEnter={() => this.props.dispatch(setCurrentNav('portfolio')) }
+        onLeave={() => this.props.dispatch(setCurrentNav('')) }
+      >
         <section id="portfolio">
           <div className="row">
             <div className="twelve columns collapsed">

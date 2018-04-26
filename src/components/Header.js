@@ -5,19 +5,15 @@ import { connect } from "react-redux";
 import Navigation from "./Navigation";
 import Banner from "./Banner";
 import ScrollDown from "./ScrollDown";
-import { SET_CURRENT_NAV } from '../state/actions';
+import { setCurrentNav } from '../state/actions';
 
 class Header extends Component {
-  handlesWaypointEnter = () => {
-    this.props.dispatch({
-      type: SET_CURRENT_NAV,
-      payload: "home"
-    })
-  }
-
   render() {
     return (
-      <Waypoint onEnter={this.handlesWaypointEnter} >
+      <Waypoint
+        onEnter={() => this.props.dispatch(setCurrentNav('home')) }
+        onLeave={() => this.props.dispatch(setCurrentNav('')) }
+      >
         <header id="home">
           <Navigation />
           <Banner />

@@ -15,12 +15,7 @@ class Banner extends Component {
             </Textfit>
           </h1>
           <h3>
-            {this.props.banner} Let's
-            <a className="smoothscroll" href="#about">
-              {" "}
-              start scrolling
-            </a>{" "}
-            and learn more
+            {this.props.banner} Learn more
             <a className="smoothscroll" href="#about">
               {" "}
               about me

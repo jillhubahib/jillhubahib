@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import Slider from "react-slick";
 import Waypoint from "react-waypoint";
-import { SET_CURRENT_NAV } from '../state/actions';
+import { setCurrentNav } from '../state/actions';
 
 const settings = {
   dots: true,
@@ -16,16 +16,12 @@ const settings = {
 };
 
 class Testimonials extends Component {
-  handlesWaypointEnter = () => {
-    this.props.dispatch({
-      type: SET_CURRENT_NAV,
-      payload: 'testimonials'
-    })
-  }
-
   render() {
     return (
-      <Waypoint onEnter={this.handlesWaypointEnter}>
+      <Waypoint
+        onEnter={() => this.props.dispatch(setCurrentNav('testimonials')) }
+        onLeave={() => this.props.dispatch(setCurrentNav('')) }
+      >
         <section id="testimonials">
           <div className="text-container">
             <div className="row">

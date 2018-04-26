@@ -2,19 +2,15 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { FaCloudDownload } from "react-icons/lib/fa";
 import Waypoint from 'react-waypoint';
-import { SET_CURRENT_NAV } from '../state/actions';
+import { setCurrentNav } from '../state/actions';
 
 class About extends Component {
-  handlesWaypointEnter = () => {
-    this.props.dispatch({
-      type: SET_CURRENT_NAV,
-      payload: 'about'
-    })
-  }
-
   render() {
     return (
-      <Waypoint onEnter={this.handlesWaypointEnter} >
+      <Waypoint
+        onEnter={() => this.props.dispatch(setCurrentNav('about')) }
+        onLeave={() => this.props.dispatch(setCurrentNav('')) }
+      >
         <section id="about">
           <div className="row">
             <div className="three columns">

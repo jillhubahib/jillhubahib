@@ -18,3 +18,9 @@ export const SET_WORKS = 'SET_WORKS';
 /*
  * action creators
  */
+export function setCurrentNav(section) {
+  return {
+    type: SET_CURRENT_NAV,
+    payload: section
+  }
+}
