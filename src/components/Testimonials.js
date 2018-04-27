@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import Slider from "react-slick";
 import Waypoint from "react-waypoint";
+import Img from "gatsby-image";
 import { setCurrentNav } from '../state/actions';
 
 const settings = {
@@ -44,6 +45,17 @@ class Testimonials extends Component {
               </div>
             </div>
           </div>
+          <Img
+            title="Header background"
+            sizes={this.props.bgImage.sizes}
+            style={{
+              position: "absolute",
+              left: 0,
+              top: 0,
+              width: "100%",
+              height: "100%"
+            }}
+          />
         </section>
       </Waypoint>
     );

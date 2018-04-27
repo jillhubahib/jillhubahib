@@ -997,9 +997,6 @@ header {
   height: 800px;
   min-height: 500px;
   width: 100%;
-  background: #161415 url(../images/header-background.jpg) no-repeat top center;
-  background-size: cover !important;
-  -webkit-background-size: cover !important;
   text-align: center;
   overflow: hidden;
 }
@@ -1018,6 +1015,8 @@ header .banner {
   width: 85%;
   padding-bottom: 30px;
   text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 header .banner-text {
@@ -1677,19 +1676,13 @@ call-to-action .button {
 /* ------------------------------------------------------------------ */
 
 #testimonials {
-  background: #1f1f1f url(../images/testimonials-bg.jpg) no-repeat center center;
-  background-size: cover !important;
-  -webkit-background-size: cover !important;
-  background-attachment: fixed;
-
   position: relative;
-  min-height: 200px;
-  width: 100%;
-  overflow: hidden;
 }
 #testimonials .text-container {
   padding-top: 96px;
   padding-bottom: 66px;
+  position: relative;
+  z-index: 2;
 }
 #testimonials h1 {
   font: 18px/24px "opensans-bold", sans-serif;

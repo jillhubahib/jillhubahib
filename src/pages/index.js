@@ -23,7 +23,6 @@ import Footer from "../components/Footer";
 class IndexPage extends Component {
   componentDidMount() {
     // contentful -> redux
-    console.log(this.props)
     const aboutMeNode = this.props.data.allContentfulAboutMe.edges[0].node;
     const aboutMe = aboutMeNode.aboutMe;
     const banner = aboutMeNode.banner;
@@ -53,13 +52,14 @@ class IndexPage extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
-        <Header />
+        <Header headerImage={this.props.data.headerImage} />
         <About />
         <Resume />
         <Portfolio />
-        <Testimonials />
+        <Testimonials bgImage={this.props.data.testimonialsImage} />
         <Footer />
       </div>
     );
@@ -110,6 +110,16 @@ export const query = graphql`
         node {
           ...PortfolioFragment
         }
+      }
+    }
+    headerImage: imageSharp(id: { regex: "/header-background.jpg/" }) {
+      sizes(maxWidth: 3600) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+    testimonialsImage: imageSharp(id: { regex: "/testimonials-bg.jpg/" }) {
+      sizes(maxWidth: 2264) {
+        ...GatsbyImageSharpSizes
       }
     }
   }
