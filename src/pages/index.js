@@ -21,7 +21,7 @@ import Testimonials from "../components/Testimonials";
 import Footer from "../components/Footer";
 
 class IndexPage extends Component {
-  componentDidMount() {
+  componentWillMount() {
     // contentful -> redux
     const aboutMeNode = this.props.data.allContentfulAboutMe.edges[0].node;
     const aboutMe = aboutMeNode.aboutMe;
@@ -52,7 +52,6 @@ class IndexPage extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <Header headerImage={this.props.data.headerImage} />
