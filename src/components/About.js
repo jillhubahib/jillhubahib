@@ -52,3 +52,14 @@ class About extends Component {
 }
 
 export default connect((state) => (state))(About);
+
+export const query = graphql`
+  fragment AboutMeFragment on ContentfulAboutMe {
+    banner
+    aboutMe {
+      childMarkdownRemark {
+        html
+      }
+    }
+  }
+`;

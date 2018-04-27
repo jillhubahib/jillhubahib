@@ -40,3 +40,16 @@ class Education extends Component {
 }
 
 export default connect((state) => (state))(Education);
+
+export const query = graphql`
+  fragment EducationFragment on ContentfulEducation {
+    school
+    course
+    dateGraduated(formatString: "MMMM YYYY")
+    educationDetail {
+      childMarkdownRemark {
+        html
+      }
+    }
+  }
+`;

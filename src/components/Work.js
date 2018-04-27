@@ -42,3 +42,19 @@ class Work extends Component {
 }
 
 export default connect((state) => (state))(Work);
+
+export const query = graphql`
+  fragment WorkFragment on ContentfulExperiences {
+    company
+    companyLink
+    jobTitle
+    startDate(formatString: "MMMM YYYY")
+    endDate(formatString: "MMMM YYYY")
+    duration
+    jobDescription {
+      childMarkdownRemark {
+        html
+      }
+    }
+  }
+`;

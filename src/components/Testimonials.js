@@ -51,3 +51,14 @@ class Testimonials extends Component {
 }
 
 export default connect((state) => (state))(Testimonials);
+
+export const query = graphql`
+  fragment TestimonialFragment on ContentfulRecommendation {
+    detail {
+      detail
+    }
+    givenBy
+    givenByPosition
+    givenByCompany
+  }
+`;

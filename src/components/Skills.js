@@ -30,3 +30,10 @@ class Skills extends Component {
 }
 
 export default connect((state) => (state))(Skills);
+
+export const query = graphql`
+  fragment SkillFragment on ContentfulSkills {
+    name
+    level
+  }
+`;

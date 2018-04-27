@@ -80,3 +80,22 @@ class Portfolio extends Component {
 }
 
 export default connect((state) => (state))(Portfolio);
+
+export const query = graphql`
+  fragment PortfolioFragment on ContentfulPortfolio {
+    name
+    category
+    description {
+      childMarkdownRemark {
+        html
+      }
+    }
+    tags
+    repository
+    thumbnails {
+      file {
+        url
+      }
+    }
+  }
+`;

@@ -23,6 +23,7 @@ import Footer from "../components/Footer";
 class IndexPage extends Component {
   componentDidMount() {
     // contentful -> redux
+    console.log(this.props)
     const aboutMeNode = this.props.data.allContentfulAboutMe.edges[0].node;
     const aboutMe = aboutMeNode.aboutMe;
     const banner = aboutMeNode.banner;
@@ -68,87 +69,46 @@ class IndexPage extends Component {
 export default connect()(IndexPage);
 
 export const query = graphql`
-  query Query {
+  query IndexQuery {
     allContentfulAboutMe {
       edges {
         node {
-          banner
-          aboutMe {
-            childMarkdownRemark {
-              html
-            }
-          }
+          ...AboutMeFragment
         }
       }
     }
     allContentfulEducation {
       edges {
         node {
-          school
-          course
-          dateGraduated(formatString: "MMMM YYYY")
-          educationDetail {
-            childMarkdownRemark {
-              html
-            }
-          }
+          ...EducationFragment
         }
       }
     }
     allContentfulExperiences (sort: { fields: [startDate], order: DESC }){
       edges {
         node {
-          company
-          companyLink
-          jobTitle
-          startDate(formatString: "MMMM YYYY")
-          endDate(formatString: "MMMM YYYY")
-          duration
-          jobDescription {
-            childMarkdownRemark {
-              html
-            }
-          }
+          ...WorkFragment
         }
       }
     }
     allContentfulRecommendation {
       edges {
         node {
-          detail {
-            detail
-          }
-          givenBy
-          givenByPosition
-          givenByCompany
+          ...TestimonialFragment
         }
       }
     }
     allContentfulSkills (sort: { fields: [createdAt] }){
       edges {
         node {
-          name
-          level
+          ...SkillFragment
         }
       }
     }
     allContentfulPortfolio {
       edges {
         node {
-          name
-          category
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-          tags
-          repository
-          thumbnails {
-            file {
-              url
-            }
-          }
+          ...PortfolioFragment
         }
       }
     }
