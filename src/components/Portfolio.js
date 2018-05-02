@@ -79,7 +79,9 @@ class Portfolio extends Component {
   }
 }
 
-export default connect((state) => (state))(Portfolio);
+const mapStateToProps = (state) => ({ works: state.works });
+
+export default connect(mapStateToProps)(Portfolio);
 
 export const query = graphql`
   fragment PortfolioFragment on ContentfulPortfolio {

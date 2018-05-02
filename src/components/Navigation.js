@@ -40,4 +40,6 @@ class Navigation extends Component {
   }
 }
 
-export default connect((state) => (state))(Navigation);
+const mapStateToProps = (state) => ({ currentNav: state.currentNav });
+
+export default connect(mapStateToProps)(Navigation);

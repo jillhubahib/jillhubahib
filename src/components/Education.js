@@ -39,7 +39,9 @@ class Education extends Component {
   }
 }
 
-export default connect((state) => (state))(Education);
+const mapStateToProps = (state) => ({ education: state.education });
+
+export default connect(mapStateToProps)(Education);
 
 export const query = graphql`
   fragment EducationFragment on ContentfulEducation {

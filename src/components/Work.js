@@ -41,7 +41,9 @@ class Work extends Component {
   }
 }
 
-export default connect((state) => (state))(Work);
+const mapStateToProps = (state) => ({ workHistory: state.workHistory });
+
+export default connect(mapStateToProps)(Work);
 
 export const query = graphql`
   fragment WorkFragment on ContentfulExperiences {

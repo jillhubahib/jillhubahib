@@ -51,7 +51,9 @@ class About extends Component {
   }
 }
 
-export default connect((state) => (state))(About);
+const mapStateToProps = (state) => ({ aboutMe: state.aboutMe });
+
+export default connect(mapStateToProps)(About);
 
 export const query = graphql`
   fragment AboutMeFragment on ContentfulAboutMe {

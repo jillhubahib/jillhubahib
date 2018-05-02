@@ -29,7 +29,9 @@ class Skills extends Component {
   }
 }
 
-export default connect((state) => (state))(Skills);
+const mapStateToProps = (state) => ({ skills: state.skills });
+
+export default connect(mapStateToProps)(Skills);
 
 export const query = graphql`
   fragment SkillFragment on ContentfulSkills {

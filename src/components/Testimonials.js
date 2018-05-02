@@ -61,8 +61,9 @@ class Testimonials extends Component {
     );
   }
 }
+const mapStateToProps = (state) => ({ testimonials: state.testimonials });
 
-export default connect((state) => (state))(Testimonials);
+export default connect(mapStateToProps)(Testimonials);
 
 export const query = graphql`
   fragment TestimonialFragment on ContentfulRecommendation {

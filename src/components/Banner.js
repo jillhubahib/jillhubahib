@@ -29,4 +29,6 @@ class Banner extends Component {
   }
 }
 
-export default connect((state) => (state))(Banner);
+const mapStateToProps = (state) => ({ banner: state.banner });
+
+export default connect(mapStateToProps)(Banner);
