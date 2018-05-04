@@ -49,6 +49,21 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`
+    `gatsby-plugin-sass`,
+    {
+      resolve: `@andrew-codes/gatsby-plugin-elasticlunr-search`,
+      options: {
+        fields: [
+          'title',
+          'tags',
+        ],
+        resolvers: {
+          ContentfulBlog: {
+            title: node => node.title,
+            tags: node => node.tags
+          },
+        },
+      },
+    }
   ]
 };

@@ -2,12 +2,15 @@ const path = require('path')
 const createPaginatedPages = require("gatsby-paginate");
 
 exports.createPages = ({graphql, boundActionCreators}) => {
-  const {createPage} = boundActionCreators
+  const { createPage } = boundActionCreators
   return new Promise((resolve, reject) => {
     const blogPostTemplate = path.resolve('src/templates/blog-post.js')
     resolve(
       graphql(`
         {
+          siteSearchIndex {
+            index
+          }
           allContentfulBlog {
             edges {
               node {
@@ -32,9 +35,11 @@ exports.createPages = ({graphql, boundActionCreators}) => {
           edges: result.data.allContentfulBlog.edges,
           createPage: createPage,
           pageTemplate: "src/templates/blog-index.js",
-          pageLength: 2, // This is optional and defaults to 10 if not used
-          pathPrefix: "blog", // This is optional and defaults to an empty string if not used
-          context: {} // This is optional and defaults to an empty object if not used
+          pageLength: 2,
+          pathPrefix: "blog",
+          context: {
+            searchIndex: result.data.siteSearchIndex.index
+          }
         });
         result.data.allContentfulBlog.edges.forEach((edge) => {
           createPage ({

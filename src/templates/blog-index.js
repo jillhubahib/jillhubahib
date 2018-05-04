@@ -11,9 +11,9 @@ const NavLink = props => {
 
 const BlogIndexPage = ({ data, pathContext }) => {
   const { group, index, first, last, pageCount, pathPrefix } = pathContext;
-  const previousUrl = index - 1 == 1 ? `/${pathPrefix}` : `/${pathPrefix}/${(index - 1).toString()}`;
+  const previousUrl = index - 1 === 1 ? `/${pathPrefix}` : `/${pathPrefix}/${(index - 1).toString()}`;
   const nextUrl = `/${pathPrefix}/${(index + 1).toString()}`;
-  console.log(pathContext)
+
   return (
     <div>
       <h4>{group.length} Posts</h4>
@@ -36,4 +36,5 @@ const BlogIndexPage = ({ data, pathContext }) => {
     </div>
   );
 };
+
 export default BlogIndexPage;
