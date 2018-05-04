@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from "react-redux";
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 class Education extends Component {
   render() {
@@ -11,37 +11,34 @@ class Education extends Component {
           </h1>
         </div>
 
-        {this.props.education.map(({node}) => (
-          <div
-            key={node.school}
-            className="nine columns main-col"
-          >
+        {this.props.education.map(({ node }) => (
+          <div key={node.school} className="nine columns main-col">
             <div className="row item">
               <div className="twelve columns">
-                <h3>
-                  {node.school}
-                </h3>
+                <h3>{node.school}</h3>
                 <p className="info">
                   {node.course}
                   <span>&bull;</span>
                   <em className="date">{node.dateGraduated}</em>
                 </p>
                 <p
-                  dangerouslySetInnerHTML={{__html: node.educationDetail.childMarkdownRemark.html}}
-                  className="detail">
-                </p>
+                  dangerouslySetInnerHTML={{
+                    __html: node.educationDetail.childMarkdownRemark.html,
+                  }}
+                  className="detail"
+                />
               </div>
             </div>
           </div>
         ))}
       </div>
-    );
+    )
   }
 }
 
-const mapStateToProps = (state) => ({ education: state.education });
+const mapStateToProps = state => ({ education: state.education })
 
-export default connect(mapStateToProps)(Education);
+export default connect(mapStateToProps)(Education)
 
 export const query = graphql`
   fragment EducationFragment on ContentfulEducation {
@@ -54,4 +51,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

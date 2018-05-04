@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from "react-redux";
-import Waypoint from "react-waypoint";
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import Waypoint from 'react-waypoint'
 
 class Work extends Component {
   render() {
@@ -12,7 +12,7 @@ class Work extends Component {
           </h1>
         </div>
         <div className="nine columns main-col">
-          {this.props.workHistory.map(({node}) => (
+          {this.props.workHistory.map(({ node }) => (
             <div className="row item" key={node.company}>
               <div className="twelve columns">
                 <h3>
@@ -23,27 +23,30 @@ class Work extends Component {
                 <p className="info">
                   {node.jobTitle}
                   <span>&bull;</span>
-                  <em className="date">{node.startDate} - {node.endDate}</em>
+                  <em className="date">
+                    {node.startDate} - {node.endDate}
+                  </em>
                   <span>&bull;</span>
                   <em className="duration"> {node.duration} </em>
                 </p>
                 <p
-                  dangerouslySetInnerHTML={{__html: node.jobDescription.childMarkdownRemark.html}}
+                  dangerouslySetInnerHTML={{
+                    __html: node.jobDescription.childMarkdownRemark.html,
+                  }}
                   className="job-description"
-                >
-                </p>
+                />
               </div>
             </div>
           ))}
         </div>
       </div>
-    );
+    )
   }
 }
 
-const mapStateToProps = (state) => ({ workHistory: state.workHistory });
+const mapStateToProps = state => ({ workHistory: state.workHistory })
 
-export default connect(mapStateToProps)(Work);
+export default connect(mapStateToProps)(Work)
 
 export const query = graphql`
   fragment WorkFragment on ContentfulExperiences {
@@ -59,4 +62,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

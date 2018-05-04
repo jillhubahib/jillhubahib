@@ -6,27 +6,27 @@ import {
   SET_WORK_HISTORY,
   SET_SKILLS,
   SET_TESTIMONIALS,
-  SET_WORKS
+  SET_WORKS,
 } from './actions'
 
 export default (state, action) => {
   switch (action.type) {
     case SET_CURRENT_NAV:
-      return {...state, currentNav: action.payload }
+      return { ...state, currentNav: action.payload }
     case SET_BANNER:
-      return {...state, banner: action.payload }
+      return { ...state, banner: action.payload }
     case SET_ABOUT_ME:
-      return {...state, aboutMe: action.payload }
+      return { ...state, aboutMe: action.payload }
     case SET_EDUCATION:
-      return {...state, education: action.payload }
+      return { ...state, education: action.payload }
     case SET_WORK_HISTORY:
-      return {...state, workHistory: action.payload }
+      return { ...state, workHistory: action.payload }
     case SET_SKILLS:
-      return {...state, skills: action.payload }
+      return { ...state, skills: action.payload }
     case SET_TESTIMONIALS:
-      return {...state, testimonials: action.payload }
+      return { ...state, testimonials: action.payload }
     case SET_WORKS:
-      return {...state, works: action.payload }
+      return { ...state, works: action.payload }
     default:
       return state
   }

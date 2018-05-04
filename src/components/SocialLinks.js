@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 import {
   FaGithub,
   FaGooglePlus,
   FaTwitter,
   FaFacebook,
-  FaInstagram
-} from "react-icons/lib/fa";
+  FaInstagram,
+} from 'react-icons/lib/fa'
 // https://gorangajic.github.io/react-icons/fa.html
 
 const SocialLinks = () => (
@@ -36,6 +36,6 @@ const SocialLinks = () => (
       </a>
     </li>
   </ul>
-);
+)
 
-export default SocialLinks;
+export default SocialLinks

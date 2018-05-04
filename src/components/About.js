@@ -1,26 +1,34 @@
-import React, { Component } from 'react';
-import { connect } from "react-redux";
-import { FaCloudDownload } from "react-icons/lib/fa";
-import Waypoint from 'react-waypoint';
-import { setCurrentNav } from '../state/actions';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { FaCloudDownload } from 'react-icons/lib/fa'
+import Waypoint from 'react-waypoint'
+import { setCurrentNav } from '../state/actions'
 
 class About extends Component {
   render() {
     return (
       <Waypoint
-        onEnter={() => this.props.dispatch(setCurrentNav('about')) }
-        onLeave={() => this.props.dispatch(setCurrentNav('')) }
+        onEnter={() => this.props.dispatch(setCurrentNav('about'))}
+        onLeave={() => this.props.dispatch(setCurrentNav(''))}
       >
         <section id="about">
           <div className="row">
             <div className="three columns">
-              <img className="profile-pic" src="https://avatars3.githubusercontent.com/u/491875?s=460&v=4" alt="Jill Pic" />
+              <img
+                className="profile-pic"
+                src="https://avatars3.githubusercontent.com/u/491875?s=460&v=4"
+                alt="Jill Pic"
+              />
             </div>
             <div className="nine columns main-col">
               <h2>About Me</h2>
-              {this.props.aboutMe.childMarkdownRemark && <p
-                dangerouslySetInnerHTML={{__html: this.props.aboutMe.childMarkdownRemark.html}}>
-              </p>}
+              {this.props.aboutMe.childMarkdownRemark && (
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: this.props.aboutMe.childMarkdownRemark.html,
+                  }}
+                />
+              )}
               <div className="row">
                 <div className="columns contact-details">
                   <h2>Contact Details</h2>
@@ -35,7 +43,7 @@ class About extends Component {
                     <span>jillhubahib@gmail.com</span>
                   </p>
                 </div>
-                <div className="columns download" style={{display: 'none'}}>
+                <div className="columns download" style={{ display: 'none' }}>
                   <p>
                     <a href="#" className="button">
                       <FaCloudDownload /> Download Resume
@@ -47,13 +55,13 @@ class About extends Component {
           </div>
         </section>
       </Waypoint>
-    );
+    )
   }
 }
 
-const mapStateToProps = (state) => ({ aboutMe: state.aboutMe });
+const mapStateToProps = state => ({ aboutMe: state.aboutMe })
 
-export default connect(mapStateToProps)(About);
+export default connect(mapStateToProps)(About)
 
 export const query = graphql`
   fragment AboutMeFragment on ContentfulAboutMe {
@@ -64,4 +72,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

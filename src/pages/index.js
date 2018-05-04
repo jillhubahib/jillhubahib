@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import {
   SET_BANNER,
@@ -8,46 +8,46 @@ import {
   SET_WORK_HISTORY,
   SET_SKILLS,
   SET_TESTIMONIALS,
-  SET_WORKS
+  SET_WORKS,
 } from '../state/actions'
 
-import "../assets/css/main.css";
+import '../assets/css/main.css'
 
-import Header from "../components/Header";
-import About from "../components/About";
-import Resume from "../components/Resume";
-import Portfolio from "../components/Portfolio";
-import Testimonials from "../components/Testimonials";
-import Footer from "../components/Footer";
+import Header from '../components/Header'
+import About from '../components/About'
+import Resume from '../components/Resume'
+import Portfolio from '../components/Portfolio'
+import Testimonials from '../components/Testimonials'
+import Footer from '../components/Footer'
 
 class IndexPage extends Component {
   componentWillMount() {
     // contentful -> redux
-    const aboutMeNode = this.props.data.allContentfulAboutMe.edges[0].node;
-    const aboutMe = aboutMeNode.aboutMe;
-    const banner = aboutMeNode.banner;
+    const aboutMeNode = this.props.data.allContentfulAboutMe.edges[0].node
+    const aboutMe = aboutMeNode.aboutMe
+    const banner = aboutMeNode.banner
 
     this.props.dispatch({ type: SET_BANNER, payload: banner })
     this.props.dispatch({ type: SET_ABOUT_ME, payload: aboutMe })
     this.props.dispatch({
       type: SET_EDUCATION,
-      payload: this.props.data.allContentfulEducation.edges
+      payload: this.props.data.allContentfulEducation.edges,
     })
     this.props.dispatch({
       type: SET_WORK_HISTORY,
-      payload: this.props.data.allContentfulExperiences.edges
+      payload: this.props.data.allContentfulExperiences.edges,
     })
     this.props.dispatch({
       type: SET_SKILLS,
-      payload: this.props.data.allContentfulSkills.edges
+      payload: this.props.data.allContentfulSkills.edges,
     })
     this.props.dispatch({
       type: SET_TESTIMONIALS,
-      payload: this.props.data.allContentfulRecommendation.edges
+      payload: this.props.data.allContentfulRecommendation.edges,
     })
     this.props.dispatch({
       type: SET_WORKS,
-      payload: this.props.data.allContentfulPortfolio.edges
+      payload: this.props.data.allContentfulPortfolio.edges,
     })
   }
 
@@ -61,11 +61,11 @@ class IndexPage extends Component {
         <Testimonials bgImage={this.props.data.testimonialsImage} />
         <Footer />
       </div>
-    );
+    )
   }
 }
 
-export default connect()(IndexPage);
+export default connect()(IndexPage)
 
 export const query = graphql`
   query IndexQuery {
@@ -83,7 +83,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulExperiences (sort: { fields: [startDate], order: DESC }){
+    allContentfulExperiences(sort: { fields: [startDate], order: DESC }) {
       edges {
         node {
           ...WorkFragment
@@ -97,7 +97,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulSkills (sort: { fields: [createdAt] }){
+    allContentfulSkills(sort: { fields: [createdAt] }) {
       edges {
         node {
           ...SkillFragment
@@ -122,4 +122,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

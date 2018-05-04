@@ -1,5 +1,5 @@
-import { createStore as reduxCreateStore } from "redux"
-import reducer from './reducer';
+import { createStore as reduxCreateStore } from 'redux'
+import reducer from './reducer'
 
 const initialState = {
   currentNav: 'home',
@@ -9,7 +9,7 @@ const initialState = {
   workHistory: [],
   skills: [],
   testimonials: [],
-  works: []
+  works: [],
 }
 
 const createStore = () => reduxCreateStore(reducer, initialState)

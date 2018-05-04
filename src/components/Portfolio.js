@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { FaPlus } from "react-icons/lib/fa";
-import Waypoint from "react-waypoint";
-import { connect } from "react-redux";
-import PortfolioItemModal from './PortfolioItemModal';
-import { setCurrentNav } from '../state/actions';
+import React, { Component } from 'react'
+import { FaPlus } from 'react-icons/lib/fa'
+import Waypoint from 'react-waypoint'
+import { connect } from 'react-redux'
+import PortfolioItemModal from './PortfolioItemModal'
+import { setCurrentNav } from '../state/actions'
 
 class Portfolio extends Component {
   state = {
@@ -12,28 +12,28 @@ class Portfolio extends Component {
       name: '',
       tags: '',
       repository: '',
-      modalPicUrl: ''
-    }
+      modalPicUrl: '',
+    },
   }
 
-  handleOpenModal = (item) => {
+  handleOpenModal = item => {
     this.setState({
       showModal: true,
-      currentPortfolioItem: item
-    });
+      currentPortfolioItem: item,
+    })
   }
 
   handleCloseModal = () => {
-    this.setState({ showModal: false });
+    this.setState({ showModal: false })
   }
 
   render() {
-    const { showModal, currentPortfolioItem } = this.state;
+    const { showModal, currentPortfolioItem } = this.state
 
     return (
       <Waypoint
-        onEnter={() => this.props.dispatch(setCurrentNav('portfolio')) }
-        onLeave={() => this.props.dispatch(setCurrentNav('')) }
+        onEnter={() => this.props.dispatch(setCurrentNav('portfolio'))}
+        onLeave={() => this.props.dispatch(setCurrentNav(''))}
       >
         <section id="portfolio">
           <div className="row">
@@ -49,10 +49,10 @@ class Portfolio extends Component {
                   handleCloseModal={this.handleCloseModal}
                   {...currentPortfolioItem}
                 />
-                {this.props.works.map(({node}) => (
+                {this.props.works.map(({ node }) => (
                   <div className="columns portfolio-item" key={node.name}>
                     <div className="item-wrap">
-                      <a onClick={() => this.handleOpenModal(node)} >
+                      <a onClick={() => this.handleOpenModal(node)}>
                         <img
                           alt={node.name}
                           src={node.thumbnails[0].file.url}
@@ -79,9 +79,9 @@ class Portfolio extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ works: state.works });
+const mapStateToProps = state => ({ works: state.works })
 
-export default connect(mapStateToProps)(Portfolio);
+export default connect(mapStateToProps)(Portfolio)
 
 export const query = graphql`
   fragment PortfolioFragment on ContentfulPortfolio {
@@ -100,4 +100,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

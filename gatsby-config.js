@@ -50,6 +50,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-emotion`,
     {
       resolve: `@andrew-codes/gatsby-plugin-elasticlunr-search`,
       options: {

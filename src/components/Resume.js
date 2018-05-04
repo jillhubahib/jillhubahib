@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { connect } from "react-redux";
-import Waypoint from "react-waypoint";
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import Waypoint from 'react-waypoint'
 
-import Education from "./Education";
-import Work from "./Work";
-import Skills from "./Skills";
-import { setCurrentNav } from '../state/actions';
+import Education from './Education'
+import Work from './Work'
+import Skills from './Skills'
+import { setCurrentNav } from '../state/actions'
 class Resume extends Component {
   render() {
     return (
       <Waypoint
-        onEnter={() => this.props.dispatch(setCurrentNav('resume')) }
-        onLeave={() => this.props.dispatch(setCurrentNav('')) }
+        onEnter={() => this.props.dispatch(setCurrentNav('resume'))}
+        onLeave={() => this.props.dispatch(setCurrentNav(''))}
       >
         <section id="resume">
           <Education />
@@ -19,8 +19,8 @@ class Resume extends Component {
           <Skills />
         </section>
       </Waypoint>
-    );
+    )
   }
 }
 
-export default connect()(Resume);
+export default connect()(Resume)

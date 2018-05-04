@@ -17,7 +17,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
                 id
                 title
                 slug
-                createdAt
+                createdAt(formatString: "LL")
                 readTimeInMinutes
                 tags {
                   name
@@ -35,7 +35,6 @@ exports.createPages = ({graphql, boundActionCreators}) => {
           edges: result.data.allContentfulBlog.edges,
           createPage: createPage,
           pageTemplate: "src/templates/blog-index.js",
-          pageLength: 2,
           pathPrefix: "blog",
           context: {
             searchIndex: result.data.siteSearchIndex.index
