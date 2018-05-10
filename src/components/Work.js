@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Waypoint from 'react-waypoint'
 
 class Work extends Component {
   render() {

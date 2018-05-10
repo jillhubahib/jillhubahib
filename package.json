@@ -30,7 +30,6 @@
     "react-router-dom": "^4.2.2",
     "react-slick": "^0.23.1",
     "react-textfit": "^1.1.0",
-    "react-waypoint": "^8.0.1",
     "redux": "^4.0.0",
     "slick-carousel": "1.8.1",
     "typography-theme-bootstrap": "0.16.7"
@@ -47,7 +46,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
-  "pre-commit": [ "precommit-msg", "format" ],
+  "pre-commit": [
+    "precommit-msg",
+    "format"
+  ],
   "devDependencies": {
     "@andrew-codes/gatsby-plugin-elasticlunr-search": "^1.0.4",
     "dotenv": "^5.0.1",

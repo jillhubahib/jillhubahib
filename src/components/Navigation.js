@@ -6,23 +6,33 @@ class Navigation extends Component {
     const { currentNav } = this.props
 
     return (
-      <nav id="nav-wrap" className="opaque">
+      <nav id="nav-wrap" className={currentNav === 'blog' ? 'opaque' : null}>
         <a className="mobile-btn" href="#nav-wrap" />
         <ul id="nav" className="nav">
-          <li className={currentNav === 'home' ? 'current' : null}>
-            <a href="/#home">Home</a>
+          <li className={currentNav === '' ? 'current' : null}>
+            <a className="smoothscroll" href="/#home">
+              Home
+            </a>
           </li>
-          <li className={currentNav === 'about' ? 'current' : null}>
-            <a href="/#about">About</a>
+          <li>
+            <a className="smoothscroll" href="/#about">
+              About
+            </a>
           </li>
-          <li className={currentNav === 'resume' ? 'current' : null}>
-            <a href="/#resume">Resume</a>
+          <li>
+            <a className="smoothscroll" href="/#resume">
+              Resume
+            </a>
           </li>
-          <li className={currentNav === 'portfolio' ? 'current' : null}>
-            <a href="/#portfolio">Works</a>
+          <li>
+            <a className="smoothscroll" href="/#portfolio">
+              Works
+            </a>
           </li>
-          <li className={currentNav === 'testimonials' ? 'current' : null}>
-            <a href="/#testimonials">Recommendations</a>
+          <li>
+            <a className="smoothscroll" href="/#testimonials">
+              Recommendations
+            </a>
           </li>
           <li className={currentNav === 'blog' ? 'current' : null}>
             <a href="/blog">Blog</a>

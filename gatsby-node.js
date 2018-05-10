@@ -1,5 +1,5 @@
 const path = require('path')
-const createPaginatedPages = require("gatsby-paginate");
+const createPaginatedPages = require('gatsby-paginate')
 
 exports.createPages = ({graphql, boundActionCreators}) => {
   const { createPage } = boundActionCreators
@@ -95,4 +95,17 @@ exports.createPages = ({graphql, boundActionCreators}) => {
       })
     })
   })
+}
+
+exports.modifyBabelrc = ({ babelrc }) => {
+  if (process.env.NODE_ENV !== `production`) {
+    return {
+      plugins: [
+        [require.resolve(`babel-plugin-emotion`), { sourceMap: true }],
+      ].concat(babelrc.plugins),
+    }
+  }
+  return {
+    plugins: [require.resolve(`babel-plugin-emotion`)].concat(babelrc.plugins),
+  }
 }

@@ -7,7 +7,7 @@ import createStore from './src/state/index';
 exports.replaceRenderer = ({
   bodyComponent,
   replaceBodyHTMLString,
-  setHeadComponents,
+  setHeadComponents
 }) => {
   const store = createStore();
 
@@ -31,3 +31,18 @@ exports.replaceRenderer = ({
   setHeadComponents([criticalIds, criticalStyle]);
   replaceBodyHTMLString(html);
 };
+
+exports.onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
+  return setPostBodyComponents([
+    <script
+      key={`jquery-1-10-2`}
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"
+    >
+    </script>,
+    <script
+      key={`waypoints-1-1-7`}
+      src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/1.1.7/waypoints.min.js"
+    >
+    </script>
+  ]);
+}
