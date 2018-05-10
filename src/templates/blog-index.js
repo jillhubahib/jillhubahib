@@ -13,12 +13,13 @@ class BlogIndex extends Component {
   }
 
   render() {
-    const { group } = this.props.pathContext
+    const { group, tag } = this.props.pathContext
+    const posts = tag ? group.filter(({ node }) => node.name === tag) : group
 
     return (
       <Layout>
-        <List posts={group} />
-        <Pagination {...this.props.pathContext} />
+        <List posts={posts} isTag={tag} />
+        {!(tag || false) && <Pagination {...this.props.pathContext} />}
       </Layout>
     )
   }

@@ -1,24 +1,15 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import Meta from './Meta'
-import { css } from 'react-emotion'
-
-const blogItem = css`
-  padding-bottom: 1rem;
-  padding-top: 2rem;
-`
+import ListItem from './ListItem'
 
 const List = props => (
   <div className="row">
-    {props.posts.map(({ node }) => (
-      <div key={node.id} className={`col-twelve ${blogItem}`}>
-        <Link to={`/blog/${node.slug}`}>
-          <h2>{node.title}</h2>
-        </Link>
-        <Meta {...node} />
-        {node.excerpt && <div>{node.excerpt}</div>}
-      </div>
-    ))}
+    {props.posts.map(({ node }) => {
+      if (props.isTag) {
+        return <ListItem key={node.name} {...node.blog[0]} />
+      } else {
+        return <ListItem key={node.id} {...node} />
+      }
+    })}
   </div>
 )
 

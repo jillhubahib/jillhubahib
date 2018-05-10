@@ -82,7 +82,7 @@ BlogPost.propTypes = {
 export default BlogPost
 
 export const query = graphql`
-  query blogPostQuery($slug: String!) {
+  query blogPostTemplateQuery($slug: String!) {
     contentfulBlog(slug: { eq: $slug }) {
       title
       thumbnail {

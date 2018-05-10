@@ -38,9 +38,9 @@ const Meta = ({ createdAt, tags, readTimeInMinutes }) => (
     {tags && (
       <Tags>
         <FaTags />{' '}
-        {tags.map(tag => (
-          <a key={tag.name} href="#">
-            {tag.name}
+        {tags.map(({ name }) => (
+          <a key={name} href={`/tags/${name}`}>
+            {name}
           </a>
         ))}
       </Tags>
@@ -53,7 +53,7 @@ const Meta = ({ createdAt, tags, readTimeInMinutes }) => (
 
 Meta.propTypes = {
   createdAt: string.isRequired,
-  tags: array.isRequired,
+  tags: array,
   readTimeInMinutes: number.isRequired,
 }
 

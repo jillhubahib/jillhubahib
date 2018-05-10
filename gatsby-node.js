@@ -5,24 +5,72 @@ exports.createPages = ({graphql, boundActionCreators}) => {
   const { createPage } = boundActionCreators
   return new Promise((resolve, reject) => {
     const blogPostTemplate = path.resolve('src/templates/blog-post.js')
-    resolve(
+    const blogIndexTemplate = path.resolve('src/templates/blog-index.js')
+    graphql(`
+      {
+        siteSearchIndex {
+          index
+        }
+        allContentfulBlog(
+          limit: 2000
+          sort: { fields: [createdAt], order: DESC }
+        ) {
+          edges {
+            node {
+              id
+              title
+              slug
+              createdAt(formatString: "LL")
+              readTimeInMinutes
+              tags {
+                name
+              }
+              excerpt
+            }
+          }
+        }
+      }
+    `)
+    .then((result) => {
+      if (result.errors) {
+        reject(result.errors)
+      }
+      createPaginatedPages({
+        edges: result.data.allContentfulBlog.edges,
+        createPage: createPage,
+        pageTemplate: blogIndexTemplate,
+        pathPrefix: "blog",
+        context: {
+          searchIndex: result.data.siteSearchIndex.index
+        }
+      });
+      result.data.allContentfulBlog.edges.forEach((edge) => {
+        createPage ({
+          path: `/blog/${edge.node.slug}/`,
+          component: blogPostTemplate,
+          context: {
+            slug: edge.node.slug,
+          }
+        })
+      })
+    })
+    .then(() => {
       graphql(`
         {
-          siteSearchIndex {
-            index
-          }
-          allContentfulBlog {
+          allContentfulTags(
+            sort: { order: DESC, fields: [createdAt] },
+            limit: 1000
+          ) {
             edges {
               node {
-                id
-                title
-                slug
-                createdAt(formatString: "LL")
-                readTimeInMinutes
-                tags {
-                  name
+                name
+                blog {
+                  title
+                  slug
+                  createdAt(formatString: "LL")
+                  readTimeInMinutes
+                  excerpt
                 }
-                excerpt
               }
             }
           }
@@ -31,26 +79,20 @@ exports.createPages = ({graphql, boundActionCreators}) => {
         if (result.errors) {
           reject(result.errors)
         }
-        createPaginatedPages({
-          edges: result.data.allContentfulBlog.edges,
-          createPage: createPage,
-          pageTemplate: "src/templates/blog-index.js",
-          pathPrefix: "blog",
-          context: {
-            searchIndex: result.data.siteSearchIndex.index
-          }
-        });
-        result.data.allContentfulBlog.edges.forEach((edge) => {
-          createPage ({
-            path: `/blog/${edge.node.slug}/`,
-            component: blogPostTemplate,
+
+        result.data.allContentfulTags.edges.forEach((edge) => {
+          createPage({
+            path: `/tags/${edge.node.name}/`,
+            component: blogIndexTemplate,
             context: {
-              slug: edge.node.slug,
-            }
+              group: result.data.allContentfulTags.edges,
+              tag: edge.node.name
+            },
           })
         })
-        return
+
+        resolve()
       })
-    )
+    })
   })
 }
