@@ -28,7 +28,7 @@ class IndexPage extends Component {
     const banner = aboutMeNode.banner
 
     this.props.dispatch({ type: SET_BANNER, payload: banner })
-    this.props.dispatch({ type: SET_ABOUT_ME, payload: aboutMe })
+    this.props.dispatch({ type: SET_ABOUT_ME, payload: aboutMeNode })
     this.props.dispatch({
       type: SET_EDUCATION,
       payload: this.props.data.allContentfulEducation.edges,

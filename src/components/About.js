@@ -4,6 +4,7 @@ import { FaCloudDownload } from 'react-icons/lib/fa'
 
 class About extends Component {
   render() {
+    const { aboutMe, resume } = this.props.aboutMe
     return (
       <section id="about">
         <div className="row">
@@ -16,10 +17,10 @@ class About extends Component {
           </div>
           <div className="nine columns main-col">
             <h2>About Me</h2>
-            {this.props.aboutMe.childMarkdownRemark && (
+            {aboutMe.childMarkdownRemark && (
               <p
                 dangerouslySetInnerHTML={{
-                  __html: this.props.aboutMe.childMarkdownRemark.html,
+                  __html: aboutMe.childMarkdownRemark.html,
                 }}
               />
             )}
@@ -37,9 +38,9 @@ class About extends Component {
                   <span>jillhubahib@gmail.com</span>
                 </p>
               </div>
-              <div className="columns download" style={{ display: 'none' }}>
+              <div className="columns download">
                 <p>
-                  <a href="#" className="button">
+                  <a href={resume.file.url} className="button">
                     <FaCloudDownload /> Download Resume
                   </a>
                 </p>
@@ -62,6 +63,11 @@ export const query = graphql`
     aboutMe {
       childMarkdownRemark {
         html
+      }
+    }
+    resume {
+      file {
+        url
       }
     }
   }
