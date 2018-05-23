@@ -34,9 +34,9 @@ class Navigation extends Component {
               Recommendations
             </a>
           </li>
-          <li className={currentNav === 'blog' ? 'current' : null}>
+          {/* <li className={currentNav === 'blog' ? 'current' : null}>
             <a href="/blog">Blog</a>
-          </li>
+          </li> */}
         </ul>
       </nav>
     )
