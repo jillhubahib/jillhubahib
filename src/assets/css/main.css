@@ -1124,12 +1124,12 @@ ul#nav li.current a {
   border-bottom: 1px solid #e8e8e8;
 }
 .education .detail ul,
-.work .job-description ul {
+.work .row.item ul {
   list-style: square;
   padding-left: 20px;
 }
 .education .detail ul li,
-.work .job-description ul li{
+.work .row ul li {
   line-height: 25px;
 }
 #resume .info {
